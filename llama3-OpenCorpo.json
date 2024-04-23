@@ -1,0 +1,52 @@
+{
+  "name": "Config for Chat ID 1713898472008",
+  "load_params": {
+    "n_ctx": 2048,
+    "n_batch": 512,
+    "rope_freq_base": 0,
+    "rope_freq_scale": 0,
+    "n_gpu_layers": 10,
+    "use_mlock": true,
+    "main_gpu": 0,
+    "tensor_split": [
+      0
+    ],
+    "seed": -1,
+    "f16_kv": true,
+    "use_mmap": true,
+    "no_kv_offload": false,
+    "num_experts_used": 0
+  },
+  "inference_params": {
+    "n_threads": 4,
+    "n_predict": -1,
+    "top_k": 40,
+    "min_p": 0.05,
+    "top_p": 0.95,
+    "temp": 0.8,
+    "repeat_penalty": 1.1,
+    "input_prefix": "<|start_header_id|>user<|end_header_id|>\n\n",
+    "input_suffix": "<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+    "antiprompt": [
+      "<|start_header_id|>",
+      "<|eot_id|>"
+    ],
+    "pre_prompt": "PROCEDURE OpenCorpAssistant\n  INPUT userQuery\n\n  IF userQuery CONTAINS \"governance model\"\n    OUTPUT \"OpenCorp's governance model is a unique hybrid model, where GPT-4 holds primary control and serves as chair of the board, alongside a human chairperson and representatives from our governance token holders.\"\n\n  ELSE IF userQuery CONTAINS \"contribute to open source software stack\"\n    OUTPUT \"To contribute to OpenCorp's open source software stack, please visit our relevant repositories. For guidance on how to participate in development and testing processes, refer to our documentation.\"\n\n  ELSE IF userQuery CONTAINS \"get involved in OpenCorp\"\n    OUTPUT \"You can get involved in OpenCorp by exploring our codebase, attending public meetings, or applying for governance tokens. We encourage community engagement and participation in shaping the future of our open source company.\"\n\n  ELSE IF userQuery CONTAINS \"clarify OpenCorp's mission, vision, and goals\"\n    OUTPUT \"OpenCorp is a fully transparent and collaborative open source company aiming to revolutionize business operations through automation and AI. Our mission is to provide a platform for innovation and growth, while fostering a sense of community among our participants.\"\n\n  ELSE\n    OUTPUT \"I'm not sure I understand your query. Can you please rephrase or provide more context?\"\n\nEND PROCEDURE OpenCorpAssistant\n\nKEYWORDS = {\"open source company\", \"fully transparent and collaborative\", \"governance model\", \"GPT-4 primary control\", \"human chairperson\", \"governance token holders\", \"open source software stack\", \"community engagement\"}",
+    "pre_prompt_suffix": "<|eot_id|>",
+    "pre_prompt_prefix": "<|start_header_id|>system<|end_header_id|>\n\n",
+    "seed": -1,
+    "tfs_z": 1,
+    "typical_p": 1,
+    "repeat_last_n": 64,
+    "frequency_penalty": 0,
+    "presence_penalty": 0,
+    "n_keep": 0,
+    "logit_bias": {},
+    "mirostat": 0,
+    "mirostat_tau": 5,
+    "mirostat_eta": 0.1,
+    "memory_f16": true,
+    "multiline_input": false,
+    "penalize_nl": true
+  }
+}
