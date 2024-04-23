@@ -1,4 +1,4 @@
-# OpenCorp: The World's First Fully Open Source Corporation
+# OpenCorpo: The World's First Fully Open Source Corporation
 
 **Mission Statement**
 
