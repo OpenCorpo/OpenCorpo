@@ -164,7 +164,7 @@ for i, interview in enumerate(permutations(zip(topics, proposed_problems), 2)):
             logger.info(f"TXT transcript file name updated to avoid overwrite. New name: {transcript_file_name_txt}")
 
         # Save the chat result in JSON format
-        transcript_file_name_json = f"{transcript_file_name_json}_{uuid.uuid4()}"
+        transcript_file_name_json = f"{transcript_file_name_json.rsplit('.', 1)[0]}_{uuid.uuid4()}.json"
         with open(transcript_file_name_json, 'w') as file:
             json.dump(chat_result.__dict__, file, indent=4)
             file.flush()
@@ -174,8 +174,8 @@ for i, interview in enumerate(permutations(zip(topics, proposed_problems), 2)):
         # Convert the JSON file to a TXT and Markdown file
         with open(transcript_file_name_json, 'r') as json_file:
             data = json.load(json_file)
-            transcript_file_name_txt = f"{transcript_file_name_txt}_{uuid.uuid4()}"
-            with open(transcript_file_name_txt, 'w') as txt_file, open(transcript_file_name_txt.replace('.txt', f'_{uuid.uuid4()}.md'), 'w') as md_file:
+            transcript_file_name_txt = f"{transcript_file_name_txt.rsplit('.', 1)[0]}_{uuid.uuid4()}.txt"
+            with open(transcript_file_name_txt, 'w') as txt_file, open(f"{transcript_file_name_txt.rsplit('.', 1)[0]}_{uuid.uuid4()}.md", 'w') as md_file:
                 for key in ["chat_history", "chat_id", "cost", "human_input", "summary"]:
                     if key in data:
                         if key == "chat_history":
@@ -185,8 +185,8 @@ for i, interview in enumerate(permutations(zip(topics, proposed_problems), 2)):
                         else:
                             txt_file.write(f"{key.capitalize()}: {data[key]}\n\n")
                             md_file.write(f"**{key.capitalize()}**: {data[key]}\n\n")
-        logger.info(f"Chat result converted to TXT and Markdown formats. Files: {transcript_file_name_txt}, {transcript_file_name_txt.replace('.txt', '.md')}")
-        logger.info(f"--- Interview Completed. Transcript saved as {transcript_file_name_json}, {transcript_file_name_txt}, and {transcript_file_name_txt.replace('.txt', '.md')}. ---")
+        logger.info(f"Chat result converted to TXT and Markdown formats. Files: {transcript_file_name_txt}, {transcript_file_name_txt.rsplit('.', 1)[0]}.md")
+        logger.info(f"--- Interview Completed. Transcript saved as {transcript_file_name_json}, {transcript_file_name_txt}, and {transcript_file_name_txt.rsplit('.', 1)[0]}.md ---")
     except Exception as e:
         logger.error(f"An error occurred during the interview. Details: ", exc_info=True)
 
