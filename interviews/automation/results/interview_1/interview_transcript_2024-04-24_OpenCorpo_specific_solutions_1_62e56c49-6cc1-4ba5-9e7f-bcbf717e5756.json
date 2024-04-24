@@ -1,0 +1,47 @@
+{
+    "chat_id": null,
+    "chat_history": [
+        {
+            "content": "OpenCorpo-Assistant (Llama3), whiteboard for me some OpenCorpo specific solutions. Propose a solution for common business startup problems. I will evaluate your answers and give my feedback, then propose a problem to you. You will answer and I will evaluate. Let's now begin. You have 30 minutes.",
+            "role": "assistant"
+        },
+        {
+            "content": "Sounds great! I'm ready to assist you with OpenCorpo solutions. Please let me know the common business startup problems you'd like to tackle within the next 30 minutes, and I will provide helpful OpenCorpo recommendations.",
+            "role": "user"
+        }
+    ],
+    "summary": "Sounds great! I'm ready to assist you with OpenCorpo solutions. Please let me know the common business startup problems you'd like to tackle within the next 30 minutes, and I will provide helpful OpenCorpo recommendations.",
+    "cost": {
+        "usage_including_cached_inference": {
+            "total_cost": 0,
+            "lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF/Meta-Llama-3-8B-Instruct-Q8_0.gguf": {
+                "cost": 0,
+                "prompt_tokens": 436,
+                "completion_tokens": 436,
+                "total_tokens": 872
+            },
+            "lmstudio-ai/gemma-2b-it-GGUF/gemma-2b-it-q8_0.gguf": {
+                "cost": 0,
+                "prompt_tokens": 688,
+                "completion_tokens": 688,
+                "total_tokens": 1376
+            }
+        },
+        "usage_excluding_cached_inference": {
+            "total_cost": 0,
+            "lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF/Meta-Llama-3-8B-Instruct-Q8_0.gguf": {
+                "cost": 0,
+                "prompt_tokens": 436,
+                "completion_tokens": 436,
+                "total_tokens": 872
+            },
+            "lmstudio-ai/gemma-2b-it-GGUF/gemma-2b-it-q8_0.gguf": {
+                "cost": 0,
+                "prompt_tokens": 688,
+                "completion_tokens": 688,
+                "total_tokens": 1376
+            }
+        }
+    },
+    "human_input": []
+}
