@@ -1,5 +1,5 @@
 {
-  "name": "Config for Chat ID 1713898472008",
+  "name": "OpenCorpo llama3",
   "load_params": {
     "n_ctx": 2048,
     "n_batch": 512,
