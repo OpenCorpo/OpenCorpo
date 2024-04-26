@@ -5,7 +5,7 @@ import json
 import logging
 from autogen import ConversableAgent
 from colorlog import ColoredFormatter
-from github3 import GitHub
+# from github3 import GitHub
 # Set up logging
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -470,9 +470,9 @@ logger.info(f"Proposed problems for interview defined. Problems: {proposed_probl
 
 import random
 
-# Initialize GitHub
-g = GitHub(token="TOKEN")
-repo = g.repository("opencorpo", "opencorpo")
+# # Initialize GitHub
+# g = GitHub(token="TOKEN")
+# repo = g.repository("opencorpo", "opencorpo")
 
 interview_permutations = list(permutations(zip(topics, proposed_problems), 2))
 random.shuffle(interview_permutations)
@@ -535,17 +535,17 @@ for i, interview in enumerate(interview_permutations):
                             md_file.write(f"**{key.capitalize()}**: {data[key]}\n\n")
         logger.info(f"Chat result converted to TXT and Markdown formats. Files: {transcript_file_name_txt}, {transcript_file_name_md}")
 
-        # Push the files to GitHub using github3
-        with open(transcript_file_name_json, 'rb') as file:
-            content = file.read()
-            repo.create_file(path=f"interviews/automation/results/{transcript_file_name_json}", message=f"Add interview transcript for topic {topic[0]} with problem {problem[0]} in JSON format", content=content)
-        with open(transcript_file_name_txt, 'rb') as file:
-            content = file.read()
-            repo.create_file(path=f"interviews/automation/results/{transcript_file_name_txt}", message=f"Add interview transcript for topic {topic[0]} with problem {problem[0]} in TXT format", content=content)
-        with open(transcript_file_name_md, 'rb') as file:
-            content = file.read()
-            repo.create_file(path=f"interviews/automation/results/{transcript_file_name_md}", message=f"Add interview transcript for topic {topic[0]} with problem {problem[0]} in Markdown format", content=content)
-        logger.info(f"--- Interview Completed. Transcript for topic {topic[0]} with problem {problem[0]} saved as {transcript_file_name_json}, {transcript_file_name_txt}, and {transcript_file_name_md} and pushed to GitHub ---")
+        # # Push the files to GitHub using github3
+        # with open(transcript_file_name_json, 'rb') as file:
+        #     content = file.read()
+        #     repo.create_file(path=f"interviews/automation/results/{transcript_file_name_json}", message=f"Add interview transcript for topic {topic[0]} with problem {problem[0]} in JSON format", content=content)
+        # with open(transcript_file_name_txt, 'rb') as file:
+        #     content = file.read()
+        #     repo.create_file(path=f"interviews/automation/results/{transcript_file_name_txt}", message=f"Add interview transcript for topic {topic[0]} with problem {problem[0]} in TXT format", content=content)
+        # with open(transcript_file_name_md, 'rb') as file:
+        #     content = file.read()
+        #     repo.create_file(path=f"interviews/automation/results/{transcript_file_name_md}", message=f"Add interview transcript for topic {topic[0]} with problem {problem[0]} in Markdown format", content=content)
+        # logger.info(f"--- Interview Completed. Transcript for topic {topic[0]} with problem {problem[0]} saved as {transcript_file_name_json}, {transcript_file_name_txt}, and {transcript_file_name_md} and pushed to GitHub ---")
     except Exception as e:
         logger.error(f"An error occurred during the interview. Details: ", exc_info=True)
 
